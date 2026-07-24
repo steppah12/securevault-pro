@@ -1,0 +1,18 @@
+# supabase/config.toml
+#
+# By default, Supabase's API gateway rejects any request to an Edge
+# Function that doesn't carry a valid Authorization bearer token —
+# including the browser's automatic CORS "preflight" OPTIONS request,
+# which is *never* allowed to carry that header. That gateway-level
+# check happens before our function code runs at all, so it can 401
+# a legitimate browser request even though the function itself does
+# its own, more careful auth check via supabase.auth.getUser().
+#
+# Both functions below authenticate the caller themselves inside their
+# own code (see the getUser() call in each index.ts), so we turn off
+# the redundant gateway-level check that was blocking the preflight.
+[functions.sign-document]
+verify_jwt = false
+
+[functions.verify-document]
+verify_jwt = false

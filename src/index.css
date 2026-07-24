@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------
+   SecureVault Pro — "Rose Atelier" theme.
+   Deep plum surfaces, blush foreground, rose as the signature accent
+   with a champagne-gold secondary. Soft rounded shapes throughout,
+   an elegant serif for headlines, and a warm rounded sans for body.
+--------------------------------------------------------------------- */
+@layer base {
+  :root {
+    --background: 322 28% 7%;
+    --foreground: 340 35% 95%;
+    --muted: 320 20% 13%;
+    --muted-foreground: 320 12% 62%;
+    --popover: 322 26% 10%;
+    --popover-foreground: 340 35% 95%;
+    --border: 322 18% 20%;
+    --input: 322 18% 20%;
+    --card: 322 24% 10%;
+    --card-foreground: 340 35% 95%;
+    --primary: 335 78% 63%;
+    --primary-foreground: 340 40% 100%;
+    --secondary: 322 20% 16%;
+    --secondary-foreground: 335 30% 88%;
+    --accent: 38 72% 63%;
+    --accent-foreground: 322 30% 12%;
+    --destructive: 350 72% 56%;
+    --destructive-foreground: 340 40% 100%;
+    --ring: 335 78% 63%;
+    --radius: 1rem;
+    --chart-1: 335 78% 63%;
+    --chart-2: 265 45% 65%;
+    --chart-3: 38 72% 63%;
+    --chart-4: 350 72% 56%;
+    --chart-5: 200 45% 60%;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Poppins', 'Helvetica Neue', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background-image:
+      radial-gradient(ellipse 70% 45% at 15% -5%, hsl(335 70% 40% / 0.18), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, hsl(38 60% 50% / 0.10), transparent);
+  }
+  ::selection { @apply bg-primary/30; }
+  h1, h2, h3 { letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+
+  /* Signature element: a soft glass "chip" used for classification and
+     clearance badges — rounded, tinted border, subtle translucent fill. */
+  .stamp {
+    @apply inline-flex items-center gap-1 rounded-full border bg-white/5 px-2.5 py-0.5 backdrop-blur-sm;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.01em;
+  }
+
+  .font-display { font-family: var(--font-display); }
+}
+
+
